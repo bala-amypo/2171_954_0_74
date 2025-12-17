@@ -1,22 +1,30 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
+
 public class Student {
-
-    private int id;
+@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
+    private String email;
+    private LocalDate dob;
+    private Float cgpa;
 
-    public Student(){
-    }
-    public Student(int id,String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -27,4 +35,39 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public Float getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(Float cgpa) {
+        this.cgpa = cgpa;
+    }
+    public Student(Float cgpa, LocalDate dob, String email, Long id, String name) {
+        this.cgpa = cgpa;
+        this.dob = dob;
+        this.email = email;
+        this.id = id;
+        this.name = name;
+    }
+    
+    public Student() {
+    }
+
 }
