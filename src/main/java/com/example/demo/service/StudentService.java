@@ -1,33 +1,16 @@
 package com.example.demo.service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import com.example.demo.entity.Student;
 
-import org.springframework.stereotype.Service;
-import com.example.demo.entity.student;
+public interface StudentService {
 
-@Service
-public class StudserviceImpl implements Studentservice {
+    Student insertStudent(Student st);
 
-    private final Map<Long, Student> store = new HashMap<>();
+    List<Student> getAllStudents();
 
-    @Override
-    public Student insertStudent(Student st) {
-        store.put(st.getId(), st);
-        return st;
-    }
+    Optional<Student> getOneStudent(Long id);
 
-    @Override
-    public List<Student> getAllStudent() {
-        return new ArrayList<>(store.values());
-    }
-
-    @Override
-    public Optional<Student> getOneStudent(Long id) {
-        return Optional.ofNullable(store.get(id));
-    }
-
-    @Override
-    public void deleteStudent(Long id) {
-        store.remove(id);
-    }
+    void deleteStudent(Long id);
 }
