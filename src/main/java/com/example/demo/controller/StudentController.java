@@ -16,5 +16,19 @@ public class Studctl {
     private Studservice ser;
 
     //POST
-    @PostMapping("/a")
-}
+    @PostMapping("/add")
+    public Studentity addStusent(@RequestBody Studentity st) {
+        return ser.saveData(st);
+    }
+
+    //GET ALL
+    @GetMapping("/getall")
+    public Collection<Studentity> getAllStudents() {
+        return ser.getAll();
+    }
+
+    //GET BY ID 
+    @GetMapping("/get/{id}")
+    public Studentity getStudentById(@PathVariable int id) {
+        return ser.getStudentById
+    }
